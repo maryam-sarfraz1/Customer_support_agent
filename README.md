@@ -16,6 +16,24 @@
 
 ---
 
+## 📸 See it in action
+
+<div align="center">
+
+**Customer chat — cited answers with a feedback loop**
+
+<img src="docs/images/chat.png" alt="Customer chat page answering questions with source citations" width="800">
+
+<br><br>
+
+**Admin dashboard — deflection rate, confidence, CSAT, and live tickets**
+
+<img src="docs/images/dashboard.png" alt="Admin dashboard with live metrics and ticket management" width="800">
+
+</div>
+
+---
+
 ## ✨ What you get
 
 | | Feature |
