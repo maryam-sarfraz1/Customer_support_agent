@@ -1,0 +1,52 @@
+{
+  "documents": [
+    {
+      "title": "Refund and Cancellation Policy",
+      "source_type": "policy",
+      "source_url": "https://example.com/policies/refunds",
+      "content": "Customers may request a full refund within 30 days of purchase. Refunds are processed back to the original payment method within 5 business days of approval. Subscription plans can be cancelled at any time from Account Settings > Billing; access continues until the end of the paid period. Annual plans cancelled within the first 14 days receive a full refund. Digital add-ons are refundable only if they have not been activated."
+    },
+    {
+      "title": "Password Reset FAQ",
+      "source_type": "faq",
+      "source_url": "https://example.com/help/password-reset",
+      "content": "To reset your password, click 'Forgot password' on the login page and enter your account email. A reset link will be emailed to you within a few minutes; the link expires after 1 hour. If you do not receive the email, check your spam folder and confirm you used the email associated with your account. After five failed login attempts your account is temporarily locked for 15 minutes."
+    },
+    {
+      "title": "Getting Started Guide",
+      "source_type": "documentation",
+      "source_url": "https://example.com/docs/getting-started",
+      "content": "Welcome to Acme Cloud! After signing up, create your first workspace from the dashboard. Invite teammates under Workspace Settings > Members; the Starter plan includes up to 5 members. Connect your data sources from the Integrations page — we support PostgreSQL, MySQL, Google Sheets, and S3. Your first sync typically completes within 10 minutes."
+    },
+    {
+      "title": "Acme Router X200 Product Manual (excerpt)",
+      "source_type": "product_manual",
+      "source_url": "https://example.com/manuals/x200",
+      "content": "To factory-reset the Acme Router X200, hold the recessed reset button on the back for 10 seconds until the power LED blinks amber. The default admin interface is available at 192.168.1.1 with username 'admin' and the password printed on the device label. Firmware updates are installed from Settings > System > Update and take about 3 minutes; do not power off the device during an update. The X200 supports Wi-Fi 6, WPA3, and up to 128 concurrent clients."
+    },
+    {
+      "title": "Shipping and Delivery Help Center Article",
+      "source_type": "help_center",
+      "source_url": "https://example.com/help/shipping",
+      "content": "Standard shipping takes 3-7 business days within the continental US and 7-14 business days internationally. Express shipping (1-2 business days) is available at checkout for an additional fee. Once your order ships you will receive a tracking number by email. If your package has not arrived within 10 business days, contact support and we will open a carrier investigation or send a replacement."
+    },
+    {
+      "title": "Billing FAQ",
+      "source_type": "faq",
+      "source_url": "https://example.com/help/billing",
+      "content": "We accept Visa, Mastercard, American Express, and PayPal. Invoices are issued on the first day of each billing cycle and can be downloaded from Account Settings > Billing > Invoices. To change your payment method, go to Billing > Payment Methods. Failed payments are retried three times over 7 days before the account is downgraded to the free tier. Enterprise customers can pay by bank transfer with NET-30 terms."
+    },
+    {
+      "title": "Historical ticket #4821: sync stuck at 99%",
+      "source_type": "support_ticket",
+      "source_url": "",
+      "content": "Customer reported data sync stuck at 99% for several hours. Resolution: this occurs when a source table has a lock held by a long-running transaction. Fix is to pause the integration, release or wait out the lock on the source database, then resume the sync. Engineering added a 30-minute lock timeout in release 2.14 so newer versions recover automatically."
+    },
+    {
+      "title": "Knowledge base: API rate limits",
+      "source_type": "knowledge_base",
+      "source_url": "https://example.com/kb/rate-limits",
+      "content": "The public API allows 120 requests per minute per API key on the Starter plan, 600 on Pro, and custom limits for Enterprise. When you exceed the limit the API returns HTTP 429 with a Retry-After header. Batch endpoints count as a single request regardless of payload size. Rate limit increases can be requested from the admin console under Developer > API Keys."
+    }
+  ]
+}

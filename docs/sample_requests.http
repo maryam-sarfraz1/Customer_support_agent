@@ -1,0 +1,82 @@
+### Health check
+GET http://localhost:8000/health
+
+### Login as admin (bootstrapped from ADMIN_EMAIL / ADMIN_PASSWORD)
+# @name login
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{"email": "admin@example.com", "password": "admin-change-me"}
+
+### Register a customer account
+POST http://localhost:8000/api/v1/auth/register
+Content-Type: application/json
+
+{"email": "jane@example.com", "password": "s3cure-password", "full_name": "Jane Doe"}
+
+### Ingest knowledge-base documents (staff only)
+POST http://localhost:8000/api/v1/knowledge/ingest
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.access_token}}
+
+{
+  "documents": [
+    {
+      "title": "Refund Policy",
+      "source_type": "policy",
+      "content": "Customers may request a full refund within 30 days of purchase."
+    }
+  ]
+}
+
+### Ask a question (RAG answer with citations)
+POST http://localhost:8000/api/v1/chat
+Content-Type: application/json
+
+{"message": "What is your refund policy?", "customer_email": "jane@example.com"}
+
+### Continue the conversation (memory)
+POST http://localhost:8000/api/v1/chat
+Content-Type: application/json
+
+{"message": "And how long does it take?", "conversation_id": "PASTE_CONVERSATION_ID"}
+
+### Ask for a human (escalation + ticket + email draft)
+POST http://localhost:8000/api/v1/chat
+Content-Type: application/json
+
+{"message": "I want to talk to a real person", "customer_email": "jane@example.com"}
+
+### Submit feedback
+POST http://localhost:8000/api/v1/feedback
+Content-Type: application/json
+
+{"conversation_id": "PASTE_CONVERSATION_ID", "rating": 5, "comment": "Very helpful!"}
+
+### Search the vector store directly (staff only)
+POST http://localhost:8000/api/v1/knowledge/search
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.access_token}}
+
+{"query": "refund", "top_k": 3}
+
+### List tickets (staff only)
+GET http://localhost:8000/api/v1/tickets?status=open
+Authorization: Bearer {{login.response.body.access_token}}
+
+### Update a ticket
+PATCH http://localhost:8000/api/v1/tickets/PASTE_TICKET_ID
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.access_token}}
+
+{"status": "resolved"}
+
+### Analytics overview (staff only)
+GET http://localhost:8000/api/v1/analytics/overview?days=30
+Authorization: Bearer {{login.response.body.access_token}}
+
+### WhatsApp inbound webhook (Twilio format)
+POST http://localhost:8000/api/v1/channels/whatsapp/webhook
+Content-Type: application/x-www-form-urlencoded
+
+Body=What is your refund policy%3F&From=whatsapp:+15551234567
